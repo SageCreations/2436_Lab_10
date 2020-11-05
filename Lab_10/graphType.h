@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <string>
 
 #include "linkedList.h"
 #include "linkedQueue.h"
@@ -89,11 +90,12 @@ void graphType::createGraph() {
   int vertex;
   int adjacentVertex;
 
-  if (gSize != 0)  // if the graph is not empty, make it empty
+  if (gSize != 0) { // if the graph is not empty, make it empty
     clearGraph();
+  }
 
   cout << "Enter input file name: ";
-  cin >> fileName;
+  cin  >> fileName;
   cout << endl;
 
   infile.open(fileName);
@@ -102,17 +104,25 @@ void graphType::createGraph() {
     cout << "Cannot open input file." << endl;
     return;
   }
-
+  
   infile >> gSize;  // get the number of vertices
+  //cout << gSize << endl;
 
-  for (index = 0; index < gSize; index++) {
+
+  for (index = 0; index < gSize; index++) 
+  {
     infile >> vertex;
+    //cout << vertex << " ";
     infile >> adjacentVertex;
+    //cout << adjacentVertex << " ";
 
-    while (adjacentVertex != -999) {
+    while (adjacentVertex != -999) 
+    {
       graph[vertex].insertLast(adjacentVertex);
       infile >> adjacentVertex;
+      //cout << adjacentVertex << " ";
     }
+    //cout << endl;
   }
   infile.close();
 }
