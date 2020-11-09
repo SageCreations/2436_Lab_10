@@ -6,15 +6,21 @@ using namespace std;
 
 int main() {
 
-  graphType graph;
+  graphType graph(50);
 
   graph.createGraph();
 
-  graph.printGraph();
+  //graph.printGraph();
 
   // todo: output results of depth first search here
-  // todo: output results of breadth first search here
+  graph.depthFirstTraversal();
 
+  cout << endl;
+  
+  // todo: output results of breadth first search here
+  graph.breadthFirstTraversal();
+
+  cout << endl;
 
   return 0;
 }

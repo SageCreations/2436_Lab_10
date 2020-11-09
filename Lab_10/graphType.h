@@ -65,7 +65,7 @@ class graphType {
  protected:
   int maxSize;                      // maximum number of vertices
   int gSize;                        // current number of vertices
-  unorderedLinkedList<int> *graph;  // array to create
+  unorderedLinkedList<int> *graph;      // array to create
                                     // adjacency lists
 
  private:
@@ -106,23 +106,17 @@ void graphType::createGraph() {
   }
   
   infile >> gSize;  // get the number of vertices
-  //cout << gSize << endl;
-
 
   for (index = 0; index < gSize; index++) 
   {
     infile >> vertex;
-    //cout << vertex << " ";
     infile >> adjacentVertex;
-    //cout << adjacentVertex << " ";
 
     while (adjacentVertex != -999) 
     {
       graph[vertex].insertLast(adjacentVertex);
       infile >> adjacentVertex;
-      //cout << adjacentVertex << " ";
     }
-    //cout << endl;
   }
   infile.close();
 }
